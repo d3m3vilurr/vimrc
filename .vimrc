@@ -292,6 +292,12 @@ if has("autocmd")
 	au Filetype text setl tw=80
 	au FileType javascript,jsp setl cin
 	au BufNewFile,BufRead *.phps,*.php3s setf php
+	au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
+		\ if &ft =~# '^\%(conf\|modula2\)$' |
+		\   set ft=markdown |
+		\ else |
+		\   setf markdown |
+		\ endif
 
 	" syntax extensions (see prior section for definition)
 	au Syntax html call s:SyntaxExtHTML()

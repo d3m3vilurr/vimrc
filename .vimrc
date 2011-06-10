@@ -188,7 +188,7 @@ if has("gui_running")
 	set go+=c go-=t go-=m go-=T sel=inclusive
 	set lines=40 co=100 lsp=0
 	set mouse=a  " --TODO
-	colo desert
+	"colo desert
 	if has("transparency")
 		set transp=5
 	endif
@@ -438,6 +438,10 @@ set sw=4
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" solarized
+set background=dark
+colorscheme solarized
+
 " end of configuration
 finish
 
@@ -483,7 +487,7 @@ finish
 " 2008-11-16  added html <![CDATA[]]> section highlighting
 " 2009-06-30  d3m3vilurr fork
 " 2009-12-21  set et, ts=4, sw=4
-" 2011-06-10  Pathogen setting add
+" 2011-06-10  added setting Pathogen, solarized
 "
 " TODOS:
 " - integrated ctags support

@@ -434,6 +434,10 @@ set ts=4
 set et
 set sw=4
 
+" Pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " end of configuration
 finish
 
@@ -479,6 +483,7 @@ finish
 " 2008-11-16  added html <![CDATA[]]> section highlighting
 " 2009-06-30  d3m3vilurr fork
 " 2009-12-21  set et, ts=4, sw=4
+" 2011-06-10  Pathogen setting add
 "
 " TODOS:
 " - integrated ctags support

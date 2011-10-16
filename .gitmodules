@@ -13,3 +13,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/vimroom"]
+	path = bundle/vimroom
+	url = git://github.com/mikewest/vimroom.git

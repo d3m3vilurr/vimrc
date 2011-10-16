@@ -448,6 +448,10 @@ call pathogen#helptags()
 set background=dark
 colorscheme solarized
 
+" vimroom on
+let g:vimroom_sidebar_height=0
+"au VimEnter * VimroomToggle
+
 " end of configuration
 finish
 
@@ -494,6 +498,7 @@ finish
 " 2009-06-30  d3m3vilurr fork
 " 2009-12-21  set et, ts=4, sw=4
 " 2011-06-10  added setting Pathogen, solarized
+" 2011-10-17  added setting vimroom
 "
 " TODOS:
 " - integrated ctags support

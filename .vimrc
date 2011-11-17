@@ -173,8 +173,6 @@ imap <silent> <C-'> <C-R>=<SID>InputQuotes()<CR>
 nmap <silent> <Leader>cd :cd %:p:h<CR>
 nmap <silent> <Leader><Space> :noh<CR>
 
-" mswindow mode
-source $VIMRUNTIME/mswin.vim
 " }}} ------------------------------------------------------
 
 " ABBRIVATION {{{ ------------------------------------------
@@ -499,6 +497,7 @@ finish
 " 2009-12-21  set et, ts=4, sw=4
 " 2011-06-10  added setting Pathogen, solarized
 " 2011-10-17  added setting vimroom
+" 2011-11-17  remove setting mswin
 "
 " TODOS:
 " - integrated ctags support

@@ -450,6 +450,9 @@ colorscheme solarized
 let g:vimroom_sidebar_height=0
 "au VimEnter * VimroomToggle
 
+" sudo write
+ca w!! w !sudo tee >/dev/null "%"
+
 " end of configuration
 finish
 
@@ -498,6 +501,7 @@ finish
 " 2011-06-10  added setting Pathogen, solarized
 " 2011-10-17  added setting vimroom
 " 2011-11-17  remove setting mswin
+" 2011-11-22  added sudo write
 "
 " TODOS:
 " - integrated ctags support

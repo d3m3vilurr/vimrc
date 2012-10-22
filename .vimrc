@@ -446,6 +446,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'jade.vim'
+Bundle 'Gist.vim'
+Bundle 'vimroom.vim'
+Bundle 'Gundo'
+Bundle 'neocomplcache'
+Bundle 'neocomplcache-snippets_complete'
 
 filetype plugin indent on
 
@@ -457,6 +463,9 @@ colorscheme solarized
 " vimroom on
 let g:vimroom_sidebar_height=0
 "au VimEnter * VimroomToggle
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"

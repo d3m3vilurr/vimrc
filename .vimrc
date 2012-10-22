@@ -438,9 +438,16 @@ set ts=4
 set et
 set sw=4
 
-" Pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" Vundle
+filetype off
+set rtp+=~/.vim/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
+
+filetype plugin indent on
 
 " solarized
 set background=dark

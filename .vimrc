@@ -470,6 +470,12 @@ let g:neocomplcache_enable_at_startup = 1
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
+" gundo
+call s:Map('<F5>', ':GundoToggle<CR>', 0)
+let g:gundo_write = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
+
 " end of configuration
 finish
 

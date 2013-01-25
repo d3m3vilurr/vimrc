@@ -476,6 +476,14 @@ let g:gundo_write = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
 
+" Fugitive
+call s:Map('<C-g>s', ':Gstatus<CR>', 0)
+call s:Map('<C-g>c', ':Gcommit<CR>', 0)
+call s:Map('<C-g>d', ':Gdiff<CR>', 0)
+call s:Map('<C-g>l', ':Glog<CR>', 0)
+call s:Map('<C-g>w', ':Gwrite<CR>', 0)
+call s:Map('<C-g>b', ':Gblame<CR>', 0)
+
 " end of configuration
 finish
 

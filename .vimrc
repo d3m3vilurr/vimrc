@@ -372,7 +372,9 @@ if v:version >= 700
 
 	" key mapping for tabpage
 	call s:Map2('<C-Tab>', '<D-Down>', 'gt', 0)
+	call s:Map2('<C-t>', '<D-Down>', 'gt', 0)
 	call s:Map2('<C-S-Tab>', '<D-Up>', 'gT', 0)
+	call s:Map2('<C-y>', '<D-Down>', 'gT', 0)
 	let i = 1
 	while i <= 10
 		call s:Map2('<M-' . (i % 10) . '>', '<D-' . (i % 10) . '>', i . 'gt', 0)

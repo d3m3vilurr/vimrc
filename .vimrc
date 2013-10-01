@@ -78,7 +78,7 @@ set nolist lcs=extends:>,precedes:<
 if &tenc ==? "utf-8"
 	set lcs+=tab:»\ ,trail:·
 else
-	set lcs+=tab:\|\ 
+	set lcs+=tab:\|\
 endif
 " }}} ------------------------------------------------------
 
@@ -365,7 +365,7 @@ endif
 if v:version >= 700
 	" editor setting
 	set nuw=6
-	
+
 	" omni completition
 	set ofu=syntaxcomplete#Complete
 	imap <C-Space> <C-X><C-N>
@@ -457,6 +457,7 @@ Bundle 'vimroom.vim'
 Bundle 'Gundo'
 Bundle 'neocomplcache'
 Bundle 'neocomplcache-snippets_complete'
+Bundle 'bronson/vim-trailing-whitespace'
 
 filetype plugin indent on
 
@@ -474,6 +475,9 @@ let g:neocomplcache_enable_at_startup = 1
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
+
+" trailing whitespace
+call s:Map('<F4>', ':FixWhitespace<CR>', 0)
 
 " gundo
 call s:Map('<F5>', ':GundoToggle<CR>', 0)

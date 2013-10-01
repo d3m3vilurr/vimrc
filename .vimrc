@@ -435,6 +435,9 @@ if v:version >= 700
 endif
 " }}} ------------------------------------------------------
 
+" shell
+set shell=bash
+
 " tabstop settings
 set ts=4
 set et

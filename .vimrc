@@ -288,7 +288,7 @@ if has("autocmd")
 	" filetype-specific configurations
 	au FileType python setl ts=8 sw=4 sts=4 et
 	au Filetype text setl tw=80
-	au FileType javascript,jsp setl cin
+	au FileType javascript,jsp setl cin noet colorcolumn=120
 	au BufNewFile,BufRead *.phps,*.php3s setf php
 	au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
 		\ if &ft =~# '^\%(conf\|modula2\)$' |

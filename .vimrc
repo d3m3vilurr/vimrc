@@ -458,6 +458,7 @@ Bundle 'Gundo'
 Bundle 'neocomplcache'
 Bundle 'neocomplcache-snippets_complete'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 

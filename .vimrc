@@ -495,6 +495,7 @@ call s:Map('<C-g>d', ':Gdiff<CR>', 0)
 call s:Map('<C-g>l', ':Glog<CR>', 0)
 call s:Map('<C-g>w', ':Gwrite<CR>', 0)
 call s:Map('<C-g>b', ':Gblame<CR>', 0)
+call s:Map('<C-g>e', ':Gedit<CR>', 0)
 
 " end of configuration
 finish

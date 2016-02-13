@@ -448,19 +448,15 @@ filetype off
 set rtp+=~/.vim/vundle
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jade.vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'vimroom.vim'
-Bundle 'Gundo'
-Bundle 'neocomplcache'
-Bundle 'neocomplcache-snippets_complete'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'scrooloose/syntastic'
-Bundle 'wting/rust.vim'
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jade.vim'
+Plugin 'Gundo'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'scrooloose/syntastic'
+Plugin 'rust-lang/rust.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
@@ -468,13 +464,6 @@ filetype plugin indent on
 set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
-
-" vimroom on
-let g:vimroom_sidebar_height=0
-"au VimEnter * VimroomToggle
-
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
@@ -496,6 +485,30 @@ call s:Map('<C-g>l', ':Glog<CR>', 0)
 call s:Map('<C-g>w', ':Gwrite<CR>', 0)
 call s:Map('<C-g>b', ':Gblame<CR>', 0)
 call s:Map('<C-g>e', ':Gedit<CR>', 0)
+
+" YouCompleteMe
+let g:ycm_register_as_syntastic_checker = 1 "default 1
+let g:Show_diagnostics_ui = 1 "default 1
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+let g:ycm_complete_in_strings = 1 "default 1
+let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
+let g:ycm_path_to_python_interpreter = '' "default ''
+
+let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+let g:ycm_server_log_level = 'info' "default info
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_confirm_extra_conf = 1
+
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_filetype_whitelist = { '*': 1 }
+"let g:ycm_key_invoke_completion = '<C-Space>'
+
+
+call s:Map('<M-F11>', ':YcmForceCompileAndDiagnostics<CR>', 0)
 
 " end of configuration
 finish

@@ -485,6 +485,7 @@ NeoBundle 'baumanno/vim-nerdtree-direnter',
             \ {
             \   'rev': 'bugfix/issue-1',
             \ }
+NeoBundle 'ctrlpvim/ctrlp.vim'
 
 call neobundle#end()
 filetype plugin indent on
@@ -542,6 +543,14 @@ call s:Map('<M-F11>', ':YcmForceCompileAndDiagnostics<CR>', 0)
 " NERDTree
 let NERDTreeMapOpenInTab='<ENTER>'
 call s:Map('<F2>', ':NERDTreeToggle<CR>', 0)
+
+" CtrlP"
+let g:ctrlp_map = '<F3>'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_prompt_mappings = {
+            \ 'AcceptSelection("e")': ['<c-t>'],
+            \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+            \ }
 
 " end of configuration
 finish

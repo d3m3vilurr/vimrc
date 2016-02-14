@@ -467,6 +467,7 @@ NeoBundle 'jade.vim'
 NeoBundle 'Gundo'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Valloric/ListToggle'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'Valloric/YouCompleteMe',
             \ {
@@ -486,6 +487,14 @@ NeoBundle 'baumanno/vim-nerdtree-direnter',
             \   'rev': 'bugfix/issue-1',
             \ }
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'Nonius/cargo.vim'
+NeoBundle 'd3m3vilurr/clippy.vim',
+            \ {
+            \   'build' : {
+            \       'linux': './install.sh',
+            \   },
+            \ }
+NeoBundle 'vim-scripts/let-modeline.vim'
 
 call neobundle#end()
 filetype plugin indent on
@@ -516,6 +525,23 @@ call s:Map('<C-g>l', ':Glog<CR>', 0)
 call s:Map('<C-g>w', ':Gwrite<CR>', 0)
 call s:Map('<C-g>b', ':Gblame<CR>', 0)
 call s:Map('<C-g>e', ':Gedit<CR>', 0)
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_rust_checkers = ['rustc', 'clippy']
+
+" ListToggle
+let lt_location_list_toggle_map = '<C-s>d'
+call s:Map('<C-s>j', ':lnext<CR>', 0)
+call s:Map('<C-s>k', ':lprevious<CR>', 0)
 
 " YouCompleteMe
 let g:ycm_register_as_syntastic_checker = 1 "default 1

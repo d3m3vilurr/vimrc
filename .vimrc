@@ -479,6 +479,12 @@ NeoBundle 'Valloric/YouCompleteMe',
             \       'cygwin': './install.py',
             \   },
             \ }
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'baumanno/vim-nerdtree-direnter',
+            \ {
+            \   'rev': 'bugfix/issue-1',
+            \ }
 
 call neobundle#end()
 filetype plugin indent on
@@ -531,8 +537,11 @@ let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-spli
 let g:ycm_filetype_whitelist = { '*': 1 }
 "let g:ycm_key_invoke_completion = '<C-Space>'
 
-
 call s:Map('<M-F11>', ':YcmForceCompileAndDiagnostics<CR>', 0)
+
+" NERDTree
+let NERDTreeMapOpenInTab='<ENTER>'
+call s:Map('<F2>', ':NERDTreeToggle<CR>', 0)
 
 " end of configuration
 finish

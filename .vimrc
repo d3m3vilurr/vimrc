@@ -443,22 +443,46 @@ set ts=4
 set et
 set sw=4
 
-" Vundle
-filetype off
-set rtp+=~/.vim/vundle
-call vundle#rc()
+" neobundle
+"if &compatible
+"    set nocompatible
+"endif
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-Plugin 'gmarik/vundle'
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jade.vim'
-Plugin 'Gundo'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'scrooloose/syntastic'
-Plugin 'rust-lang/rust.vim'
-Plugin 'Valloric/YouCompleteMe'
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc.vim',
+            \ {
+            \   'build' : {
+            \       'linux': 'make',
+            \       'unix': 'gmake',
+            \       'mac': 'make',
+            \       'windows': 'tools\\update-dll-mingw',
+            \       'cygwin': 'make -f make_cygwin.mak',
+            \   },
+            \ }
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'jade.vim'
+NeoBundle 'Gundo'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'Valloric/YouCompleteMe',
+            \ {
+            \   'install_process_timeout': 1000,
+            \   'build' : {
+            \       'linux': './install.py --racer-completer --clang-completer --system-libclang',
+            \       'unix': './install.py',
+            \       'mac': './install.py',
+            \       'windows': 'install.py',
+            \       'cygwin': './install.py',
+            \   },
+            \ }
 
+call neobundle#end()
 filetype plugin indent on
+NeoBundleCheck
 
 " solarized
 set background=dark

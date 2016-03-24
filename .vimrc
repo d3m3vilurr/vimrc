@@ -495,6 +495,7 @@ NeoBundle 'd3m3vilurr/clippy.vim',
             \   },
             \ }
 NeoBundle 'vim-scripts/let-modeline.vim'
+NeoBundle 'leafgarland/typescript-vim'
 
 call neobundle#end()
 filetype plugin indent on
@@ -537,6 +538,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_rust_checkers = ['rustc', 'clippy']
+let g:syntastic_typescript_checkers = ['tsc', 'tslint']
+let g:syntastic_typescript_tsc_fname = ''
 
 " ListToggle
 let lt_location_list_toggle_map = '<C-s>d'

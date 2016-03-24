@@ -443,38 +443,67 @@ set ts=4
 set et
 set sw=4
 
-" Vundle
-filetype off
-set rtp+=~/.vim/vundle
-call vundle#rc()
+" neobundle
+"if &compatible
+"    set nocompatible
+"endif
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jade.vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'vimroom.vim'
-Bundle 'Gundo'
-Bundle 'neocomplcache'
-Bundle 'neocomplcache-snippets_complete'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc.vim',
+            \ {
+            \   'build' : {
+            \       'linux': 'make',
+            \       'unix': 'gmake',
+            \       'mac': 'make',
+            \       'windows': 'tools\\update-dll-mingw',
+            \       'cygwin': 'make -f make_cygwin.mak',
+            \   },
+            \ }
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'jade.vim'
+NeoBundle 'Gundo'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Valloric/ListToggle'
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'Valloric/YouCompleteMe',
+            \ {
+            \   'install_process_timeout': 1000,
+            \   'build' : {
+            \       'linux': './install.py --racer-completer --clang-completer --system-libclang',
+            \       'unix': './install.py',
+            \       'mac': './install.py',
+            \       'windows': 'install.py',
+            \       'cygwin': './install.py',
+            \   },
+            \ }
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'baumanno/vim-nerdtree-direnter',
+            \ {
+            \   'rev': 'bugfix/issue-1',
+            \ }
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'Nonius/cargo.vim'
+NeoBundle 'd3m3vilurr/clippy.vim',
+            \ {
+            \   'build' : {
+            \       'linux': './install.sh',
+            \   },
+            \ }
+NeoBundle 'vim-scripts/let-modeline.vim'
 
+call neobundle#end()
 filetype plugin indent on
+NeoBundleCheck
 
 " solarized
 set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
-
-" vimroom on
-let g:vimroom_sidebar_height=0
-"au VimEnter * VimroomToggle
-
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
 
 " sudo write
 ca w!! w !sudo tee >/dev/null "%"
@@ -496,6 +525,58 @@ call s:Map('<C-g>l', ':Glog<CR>', 0)
 call s:Map('<C-g>w', ':Gwrite<CR>', 0)
 call s:Map('<C-g>b', ':Gblame<CR>', 0)
 call s:Map('<C-g>e', ':Gedit<CR>', 0)
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_rust_checkers = ['rustc', 'clippy']
+
+" ListToggle
+let lt_location_list_toggle_map = '<C-s>d'
+call s:Map('<C-s>j', ':lnext<CR>', 0)
+call s:Map('<C-s>k', ':lprevious<CR>', 0)
+
+" YouCompleteMe
+let g:ycm_register_as_syntastic_checker = 1 "default 1
+let g:Show_diagnostics_ui = 1 "default 1
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+let g:ycm_complete_in_strings = 1 "default 1
+let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
+let g:ycm_path_to_python_interpreter = '' "default ''
+
+let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+let g:ycm_server_log_level = 'info' "default info
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_confirm_extra_conf = 1
+
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_filetype_whitelist = { '*': 1 }
+"let g:ycm_key_invoke_completion = '<C-Space>'
+
+call s:Map('<M-F11>', ':YcmForceCompileAndDiagnostics<CR>', 0)
+
+" NERDTree
+let NERDTreeMapOpenInTab='<ENTER>'
+call s:Map('<F2>', ':NERDTreeToggle<CR>', 0)
+
+" CtrlP"
+let g:ctrlp_map = '<F3>'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_prompt_mappings = {
+            \ 'AcceptSelection("e")': ['<c-t>'],
+            \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+            \ }
 
 " end of configuration
 finish

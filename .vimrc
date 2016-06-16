@@ -288,7 +288,7 @@ if has("autocmd")
 	" filetype-specific configurations
 	au FileType python setl ts=8 sw=4 sts=4 et
 	au Filetype text setl tw=80
-	au FileType javascript,jsp setl cin noet colorcolumn=120
+	au FileType javascript,jsp setl cin et colorcolumn=80
 	au FileType typescript setl cin et ts=2 sw=2 sts=2 colorcolumn=120
 	au BufNewFile,BufRead *.phps,*.php3s setf php
 	au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
@@ -539,8 +539,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_rust_checkers = ['rustc', 'clippy']
-let g:syntastic_typescript_checkers = ['tsc', 'tslint']
+let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_typescript_tsc_fname = ''
+let g:syntastic_javascript_checkers = ['eslint']
 
 " ListToggle
 let lt_location_list_toggle_map = '<C-s>d'

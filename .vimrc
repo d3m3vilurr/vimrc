@@ -443,63 +443,65 @@ set ts=4
 set et
 set sw=4
 
-" neobundle
+" dein
 "if &compatible
 "    set nocompatible
 "endif
-set runtimepath^=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath^=~/.vim/bundle/dein.vim/
+call dein#begin(expand('~/.vim/bundle/'))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc.vim',
-            \ {
-            \   'build' : {
-            \       'linux': 'make',
-            \       'unix': 'gmake',
-            \       'mac': 'make',
-            \       'windows': 'tools\\update-dll-mingw',
-            \       'cygwin': 'make -f make_cygwin.mak',
-            \   },
-            \ }
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'jade.vim'
-NeoBundle 'Gundo'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Valloric/ListToggle'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'Valloric/YouCompleteMe',
-            \ {
-            \   'install_process_timeout': 1000,
-            \   'build' : {
-            \       'linux': './install.py --racer-completer --clang-completer --system-libclang',
-            \       'unix': './install.py',
-            \       'mac': './install.py',
-            \       'windows': 'install.py',
-            \       'cygwin': './install.py',
-            \   },
-            \ }
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'baumanno/vim-nerdtree-direnter',
-            \ {
-            \   'rev': 'bugfix/issue-1',
-            \ }
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'Nonius/cargo.vim'
-NeoBundle 'd3m3vilurr/clippy.vim',
-            \ {
-            \   'build' : {
-            \       'linux': './install.sh',
-            \   },
-            \ }
-NeoBundle 'vim-scripts/let-modeline.vim'
-NeoBundle 'leafgarland/typescript-vim'
+call dein#add('Shougo/vimproc.vim',
+              \ {
+              \   'build' : {
+              \     'linux': 'make',
+              \     'unix': 'gmake',
+              \     'mac': 'make',
+              \     'windows': 'tools\\update-dll-mingw',
+              \     'cygwin': 'make -f make_cygwin.mak',
+              \   },
+              \ })
+call dein#add('tpope/vim-fugitive')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('jade.vim')
+call dein#add('Gundo')
+call dein#add('bronson/vim-trailing-whitespace')
+call dein#add('scrooloose/syntastic')
+call dein#add('Valloric/ListToggle')
+call dein#add('rust-lang/rust.vim')
+call dein#add('Valloric/YouCompleteMe',
+              \ {
+              \   'install_process_timeout': 1000,
+              \   'build' : {
+              \      'linux': './install.py --racer-completer --clang-completer --system-libclang',
+              \      'unix': './install.py',
+              \      'mac': './install.py',
+              \     'windows': 'install.py',
+              \     'cygwin': './install.py',
+              \   },
+              \ })
+call dein#add('scrooloose/nerdtree')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#add('baumanno/vim-nerdtree-direnter',
+              \ {
+              \   'rev': 'bugfix/issue-1',
+              \ })
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('Nonius/cargo.vim')
+call dein#add('d3m3vilurr/clippy.vim',
+              \ {
+              \   'build' : {
+              \     'linux': './install.sh',
+              \   },
+              \ })
+call dein#add('vim-scripts/let-modeline.vim')
+call dein#add('leafgarland/typescript-vim')
 
-call neobundle#end()
+call dein#end()
 filetype plugin indent on
-NeoBundleCheck
+
+if dein#check_install()
+    call dein#install()
+endif
 
 " solarized
 set background=dark

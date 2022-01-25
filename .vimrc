@@ -521,13 +521,13 @@ let g:gundo_preview_height = 40
 let g:gundo_right = 1
 
 " Fugitive
-call s:Map('<C-g>s', ':Gstatus<CR>', 0)
-call s:Map('<C-g>c', ':Gcommit<CR>', 0)
-call s:Map('<C-g>d', ':Gdiff<CR>', 0)
-call s:Map('<C-g>l', ':Glog<CR>', 0)
-call s:Map('<C-g>w', ':Gwrite<CR>', 0)
-call s:Map('<C-g>b', ':Gblame<CR>', 0)
-call s:Map('<C-g>e', ':Gedit<CR>', 0)
+call s:Map('<C-g>s', ':Git status<CR>', 0)
+call s:Map('<C-g>c', ':Git commit<CR>', 0)
+call s:Map('<C-g>d', ':Git diff<CR>', 0)
+call s:Map('<C-g>l', ':Git log<CR>', 0)
+call s:Map('<C-g>w', ':Git write<CR>', 0)
+call s:Map('<C-g>b', ':Git blame<CR>', 0)
+call s:Map('<C-g>e', ':Git edit<CR>', 0)
 
 " syntastic
 set statusline+=%#warningmsg#

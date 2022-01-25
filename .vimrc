@@ -462,8 +462,8 @@ call dein#add('Shougo/vimproc.vim',
               \ })
 call dein#add('tpope/vim-fugitive')
 call dein#add('altercation/vim-colors-solarized')
-call dein#add('jade.vim')
-call dein#add('Gundo')
+"call dein#add('jade.vim')
+call dein#add('sjl/gundo.vim')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('scrooloose/syntastic')
 call dein#add('Valloric/ListToggle')
@@ -481,12 +481,9 @@ call dein#add('Valloric/YouCompleteMe',
               \ })
 call dein#add('scrooloose/nerdtree')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
-call dein#add('baumanno/vim-nerdtree-direnter',
-              \ {
-              \   'rev': 'bugfix/issue-1',
-              \ })
+call dein#add('Nopik/vim-nerdtree-direnter')
 call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('Nonius/cargo.vim')
+"call dein#add('Nonius/cargo.vim')
 call dein#add('d3m3vilurr/clippy.vim',
               \ {
               \   'build' : {

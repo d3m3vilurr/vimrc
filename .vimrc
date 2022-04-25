@@ -504,8 +504,9 @@ filetype plugin indent on
 NeoBundleCheck
 
 " solarized
-set background=dark
+set background=light
 let g:solarized_termtrans=1
+let g:solarized_degrade=0
 colorscheme solarized
 
 " sudo write

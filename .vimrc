@@ -497,6 +497,7 @@ NeoBundle 'd3m3vilurr/clippy.vim',
             \ }
 NeoBundle 'vim-scripts/let-modeline.vim'
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'embear/vim-localvimrc'
 
 call neobundle#end()
 filetype plugin indent on
@@ -582,6 +583,9 @@ let g:ctrlp_prompt_mappings = {
             \ 'AcceptSelection("e")': ['<c-t>'],
             \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
             \ }
+
+" localvimrc"
+let g:localvimrc_ask = 0
 
 " end of configuration
 finish
